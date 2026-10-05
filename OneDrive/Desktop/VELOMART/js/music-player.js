@@ -11,8 +11,8 @@ function createMusicPlayer() {
     // Determine audio path based on current location
     const isInPagesDir = window.location.pathname.includes('/pages/');
     const audioPath = isInPagesDir 
-        ? '../Al James, Muric - Mood (Official Lyric Video) (1).mp3'
-        : 'Al James, Muric - Mood (Official Lyric Video) (1).mp3';
+        ? '../Al James, Muric - Mood (Official Lyric Video).mp3'
+        : 'Al James, Muric - Mood (Official Lyric Video).mp3';
 
     const playerHTML = `
         <div id="globalMusicPlayer" class="music-player">
