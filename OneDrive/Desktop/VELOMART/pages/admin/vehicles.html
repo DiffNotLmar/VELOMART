@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Vehicles - VeloMart Admin</title>
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <i class="fas fa-car"></i>
+                    <span>VeloMart</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../vehicles.html">Vehicles</a></li>
+                    <li><a href="dashboard.html" class="active">Admin</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="icon-btn" id="userBtn"><i class="fas fa-user"></i></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Admin Layout -->
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <h3>Admin Panel</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="vehicles.html" class="nav-item active">
+                    <i class="fas fa-car"></i>
+                    <span>Manage Vehicles</span>
+                </a>
+                <a href="orders.html" class="nav-item">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Manage Orders</span>
+                </a>
+                <a href="../../index.html" class="nav-item">
+                    <i class="fas fa-home"></i>
+                    <span>Back to Site</span>
+                </a>
+                <a href="#" class="nav-item logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div class="admin-header">
+                <h1>Manage Vehicles</h1>
+                <button class="btn-primary" id="addVehicleBtn">
+                    <i class="fas fa-plus"></i>
+                    Add New Vehicle
+                </button>
+            </div>
+
+            <!-- Filters -->
+            <div class="admin-filters">
+                <div class="filter-group">
+                    <input type="text" id="searchVehicles" placeholder="Search vehicles..." class="filter-input">
+                </div>
+                <div class="filter-group">
+                    <select id="filterCategory" class="filter-select">
+                        <option value="">All Categories</option>
+                        <option value="cars">Cars</option>
+                        <option value="motorcycles">Motorcycles</option>
+                        <option value="trucks">Trucks</option>
+                        <option value="vans">Vans</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <select id="filterStatus" class="filter-select">
+                        <option value="">All Status</option>
+                        <option value="active">Active</option>
+                        <option value="sold">Sold</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Vehicles Table -->
+            <div class="admin-table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Type</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Year</th>
+                            <th>Category</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="vehiclesTableBody">
+                        <!-- Will be loaded via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add/Edit Vehicle Modal -->
+    <div class="modal" id="vehicleModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Add New Vehicle</h3>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <form id="vehicleForm">
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Vehicle Name *</label>
+                            <input type="text" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Type *</label>
+                            <input type="text" name="type" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Category *</label>
+                            <select name="category" required>
+                                <option value="cars">Cars</option>
+                                <option value="motorcycles">Motorcycles</option>
+                                <option value="trucks">Trucks</option>
+                                <option value="vans">Vans</option>
+                                <option value="heavy">Heavy Equipment</option>
+                                <option value="electric">Electric Vehicles</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Price *</label>
+                            <input type="number" name="price" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Year *</label>
+                            <input type="number" name="year" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Mileage *</label>
+                            <input type="text" name="mileage" required placeholder="e.g., 35,000 km">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Transmission *</label>
+                            <select name="transmission" required>
+                                <option value="Automatic">Automatic</option>
+                                <option value="Manual">Manual</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Fuel Type *</label>
+                            <select name="fuelType" required>
+                                <option value="Gasoline">Gasoline</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="Electric">Electric</option>
+                                <option value="Hybrid">Hybrid</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Color *</label>
+                            <input type="text" name="color" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Status *</label>
+                            <select name="status" required>
+                                <option value="active">Active</option>
+                                <option value="sold">Sold</option>
+                                <option value="inactive">Inactive</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Description *</label>
+                        <textarea name="description" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Image URL *</label>
+                        <input type="url" name="image" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn-primary">Save Vehicle</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../../js/data.js"></script>
+    <script src="../../js/admin-vehicles.js"></script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+/* Notification System Styles */
+
+.notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 400px;
+    pointer-events: none;
+}
+
+.notification {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    border-left: 4px solid var(--primary-color);
+    opacity: 0;
+    transform: translateX(400px);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    pointer-events: all;
+    min-width: 300px;
+    backdrop-filter: blur(10px);
+}
+
+.notification.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.notification-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+}
+
+.notification-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.notification-message {
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.2s;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.notification-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+/* Notification Types */
+.notification-success {
+    border-left-color: #10b981;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), var(--card-bg));
+}
+
+.notification-success .notification-icon {
+    color: #10b981;
+}
+
+.notification-error {
+    border-left-color: #ef4444;
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), var(--card-bg));
+}
+
+.notification-error .notification-icon {
+    color: #ef4444;
+}
+
+.notification-warning {
+    border-left-color: #f59e0b;
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), var(--card-bg));
+}
+
+.notification-warning .notification-icon {
+    color: #f59e0b;
+}
+
+.notification-info {
+    border-left-color: #3b82f6;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), var(--card-bg));
+}
+
+.notification-info .notification-icon {
+    color: #3b82f6;
+}
+
+/* Confirmation Dialog */
+.confirm-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    padding: 20px;
+}
+
+.confirm-overlay.show {
+    opacity: 1;
+}
+
+.confirm-dialog {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 32px;
+    max-width: 440px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    transform: scale(0.9);
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.confirm-overlay.show .confirm-dialog {
+    transform: scale(1);
+}
+
+.confirm-icon {
+    text-align: center;
+    font-size: 48px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.confirm-message {
+    text-align: center;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 28px;
+}
+
+.confirm-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.confirm-btn {
+    flex: 1;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: inherit;
+}
+
+.confirm-cancel {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+.confirm-cancel:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.confirm-ok {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+}
+
+.confirm-ok:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .notification-container {
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+
+    .notification {
+        min-width: auto;
+        padding: 14px 16px;
+    }
+
+    .confirm-dialog {
+        padding: 24px;
+        margin: 20px;
+    }
+
+    .confirm-icon {
+        font-size: 40px;
+        margin-bottom: 16px;
+    }
+
+    .confirm-message {
+        font-size: 1rem;
+        margin-bottom: 24px;
+    }
+}
+
+/* Animation for spinner */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.fa-spin {
+    animation: spin 1s linear infinite;
+}

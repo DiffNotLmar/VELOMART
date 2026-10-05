@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - VeloMart</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/checkout.css">
+    <link rel="stylesheet" href="../css/notifications.css">
+    <link rel="stylesheet" href="../css/music-player.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <i class="fas fa-car"></i>
+                    <span>VeloMart</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="vehicles.html">Vehicles</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="icon-btn" id="searchBtn"><i class="fas fa-search"></i></button>
+                    <button class="icon-btn" id="userBtn"><i class="fas fa-user"></i></button>
+                    <button class="icon-btn" id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Checkout</h1>
+            <p>Complete your purchase</p>
+        </div>
+    </section>
+
+    <!-- Checkout Section -->
+    <section class="checkout-section">
+        <div class="container">
+            <div class="checkout-layout">
+                <!-- Checkout Form -->
+                <div class="checkout-form-section">
+                    <form id="checkoutForm">
+                        <!-- Step 1: Shipping Information -->
+                        <div class="form-section">
+                            <div class="section-header">
+                                <span class="step-number">1</span>
+                                <h3>Shipping Information</h3>
+                            </div>
+                            <div class="form-grid">
+                                <div class="form-group full-width">
+                                    <label for="fullName">Full Name *</label>
+                                    <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" name="email" required placeholder="your@email.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number *</label>
+                                    <input type="tel" id="phone" name="phone" required placeholder="+63 XXX XXX XXXX">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Address -->
+                        <div class="form-section">
+                            <div class="section-header">
+                                <span class="step-number">2</span>
+                                <h3>Address</h3>
+                            </div>
+                            <div class="form-grid">
+                                <div class="form-group full-width">
+                                    <label for="address">Street Address *</label>
+                                    <input type="text" id="address" name="address" required placeholder="House number, street name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="city">City *</label>
+                                    <input type="text" id="city" name="city" required placeholder="Select City">
+                                </div>
+                                <div class="form-group">
+                                    <label for="region">Region *</label>
+                                    <select id="region" name="region" required>
+                                        <option value="">Select Region</option>
+                                        <option value="Metro Manila">Metro Manila</option>
+                                        <option value="Cavite">Cavite</option>
+                                        <option value="Laguna">Laguna</option>
+                                        <option value="Rizal">Rizal</option>
+                                        <option value="Bulacan">Bulacan</option>
+                                        <option value="Pampanga">Pampanga</option>
+                                        <option value="Batangas">Batangas</option>
+                                        <option value="Others">Others</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="zipCode">ZIP Code *</label>
+                                    <input type="text" id="zipCode" name="zipCode" required placeholder="1000">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Payment Method -->
+                        <div class="form-section">
+                            <div class="section-header">
+                                <span class="step-number">3</span>
+                                <h3>Payment Method</h3>
+                            </div>
+                            <div class="payment-methods">
+                                <label class="payment-option">
+                                    <input type="radio" name="paymentMethod" value="gcash" required>
+                                    <div class="payment-card">
+                                        <div class="payment-icon gcash">
+                                            <i class="fas fa-mobile-alt"></i>
+                                        </div>
+                                        <div class="payment-details">
+                                            <span class="payment-name">GCash</span>
+                                            <span class="payment-desc">Pay using GCash mobile wallet</span>
+                                        </div>
+                                        <i class="fas fa-check-circle check-icon"></i>
+                                    </div>
+                                </label>
+
+                                <label class="payment-option">
+                                    <input type="radio" name="paymentMethod" value="bank" required>
+                                    <div class="payment-card">
+                                        <div class="payment-icon bank">
+                                            <i class="fas fa-university"></i>
+                                        </div>
+                                        <div class="payment-details">
+                                            <span class="payment-name">Bank Transfer</span>
+                                            <span class="payment-desc">Direct online bank transfer</span>
+                                        </div>
+                                        <i class="fas fa-check-circle check-icon"></i>
+                                    </div>
+                                </label>
+
+                                <label class="payment-option">
+                                    <input type="radio" name="paymentMethod" value="card" required>
+                                    <div class="payment-card">
+                                        <div class="payment-icon card">
+                                            <i class="fas fa-credit-card"></i>
+                                        </div>
+                                        <div class="payment-details">
+                                            <span class="payment-name">Credit / Debit Card</span>
+                                            <span class="payment-desc">Visa, Mastercard, JCB</span>
+                                        </div>
+                                        <i class="fas fa-check-circle check-icon"></i>
+                                    </div>
+                                </label>
+
+                                <label class="payment-option">
+                                    <input type="radio" name="paymentMethod" value="cod" required>
+                                    <div class="payment-card">
+                                        <div class="payment-icon cod">
+                                            <i class="fas fa-money-bill-wave"></i>
+                                        </div>
+                                        <div class="payment-details">
+                                            <span class="payment-name">Cash on Delivery</span>
+                                            <span class="payment-desc">Pay when you receive</span>
+                                        </div>
+                                        <i class="fas fa-check-circle check-icon"></i>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Additional Notes -->
+                        <div class="form-section">
+                            <div class="section-header">
+                                <span class="step-number">4</span>
+                                <h3>Additional Information</h3>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="notes">Order Notes (Optional)</label>
+                                <textarea id="notes" name="notes" rows="4" placeholder="Any special instructions or notes for your order"></textarea>
+                            </div>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="saveInfo" name="saveInfo">
+                                <span>Save this information for next time</span>
+                            </label>
+                        </div>
+
+                        <!-- Terms and Conditions -->
+                        <div class="terms-section">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+                                <span>I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn-primary place-order-btn">
+                            <i class="fas fa-lock"></i>
+                            Place Order
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="order-summary-section">
+                    <div class="order-summary-card">
+                        <h3>Order Summary</h3>
+                        <div class="order-items" id="orderItems">
+                            <!-- Items will be loaded via JavaScript -->
+                        </div>
+                        <div class="summary-divider"></div>
+                        <div class="summary-totals" id="summaryTotals">
+                            <!-- Totals will be loaded via JavaScript -->
+                        </div>
+                        <div class="security-note">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Your information is secure and encrypted</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-car"></i>
+                        <span>VeloMart</span>
+                    </div>
+                    <p>Drive Your Dreams</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="vehicles.html">Vehicles</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Admin</h4>
+                    <ul>
+                        <li><a href="admin/dashboard.html">Dashboard</a></li>
+                        <li><a href="admin/vehicles.html">Manage Vehicles</a></li>
+                        <li><a href="admin/orders.html">Manage Orders</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 VeloMart. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/notifications.js"></script>
+    <script src="../js/music-player.js"></script>
+    <script src="../js/checkout.js"></script>
+</body>
+</html>

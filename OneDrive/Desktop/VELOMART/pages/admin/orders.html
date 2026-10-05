@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Orders - VeloMart Admin</title>
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <i class="fas fa-car"></i>
+                    <span>VeloMart</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../vehicles.html">Vehicles</a></li>
+                    <li><a href="dashboard.html" class="active">Admin</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="icon-btn" id="userBtn"><i class="fas fa-user"></i></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Admin Layout -->
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <h3>Admin Panel</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="vehicles.html" class="nav-item">
+                    <i class="fas fa-car"></i>
+                    <span>Manage Vehicles</span>
+                </a>
+                <a href="orders.html" class="nav-item active">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Manage Orders</span>
+                </a>
+                <a href="../../index.html" class="nav-item">
+                    <i class="fas fa-home"></i>
+                    <span>Back to Site</span>
+                </a>
+                <a href="#" class="nav-item logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div class="admin-header">
+                <h1>Manage Orders</h1>
+            </div>
+
+            <!-- Filters -->
+            <div class="admin-filters">
+                <div class="filter-group">
+                    <input type="text" id="searchOrders" placeholder="Search by order ID or customer..." class="filter-input">
+                </div>
+                <div class="filter-group">
+                    <select id="filterStatus" class="filter-select">
+                        <option value="">All Status</option>
+                        <option value="pending">Pending</option>
+                        <option value="processing">Processing</option>
+                        <option value="completed">Completed</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <select id="filterPayment" class="filter-select">
+                        <option value="">All Payment Methods</option>
+                        <option value="gcash">GCash</option>
+                        <option value="bank">Bank Transfer</option>
+                        <option value="card">Card</option>
+                        <option value="cod">Cash on Delivery</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Orders Table -->
+            <div class="admin-table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Items</th>
+                            <th>Total</th>
+                            <th>Payment</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersTableBody">
+                        <!-- Will be loaded via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Order Details Modal -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content order-details-modal">
+            <div class="modal-header">
+                <h3>Order Details</h3>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body" id="orderDetailsContent">
+                <!-- Will be loaded via JS -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-secondary" id="closeOrderBtn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/data.js"></script>
+    <script src="../../js/admin-orders.js"></script>
+</body>
+</html>

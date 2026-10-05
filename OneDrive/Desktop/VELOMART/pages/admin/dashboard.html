@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - VeloMart</title>
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <i class="fas fa-car"></i>
+                    <span>VeloMart</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../vehicles.html">Vehicles</a></li>
+                    <li><a href="dashboard.html" class="active">Admin</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="icon-btn" id="userBtn"><i class="fas fa-user"></i></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Admin Layout -->
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <h3>Admin Panel</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item active">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="vehicles.html" class="nav-item">
+                    <i class="fas fa-car"></i>
+                    <span>Manage Vehicles</span>
+                </a>
+                <a href="orders.html" class="nav-item">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Manage Orders</span>
+                </a>
+                <a href="../../index.html" class="nav-item">
+                    <i class="fas fa-home"></i>
+                    <span>Back to Site</span>
+                </a>
+                <a href="#" class="nav-item logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div class="admin-header">
+                <h1>Dashboard</h1>
+                <p>Welcome back! Here's what's happening with your store today.</p>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon sales">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-content">
+                        <span class="stat-label">Total Sales</span>
+                        <span class="stat-value" id="totalSales">₱0</span>
+                        <span class="stat-change positive">+12% from last month</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon orders">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <div class="stat-content">
+                        <span class="stat-label">Total Orders</span>
+                        <span class="stat-value" id="totalOrders">0</span>
+                        <span class="stat-change positive">+8% from last month</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon vehicles">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="stat-content">
+                        <span class="stat-label">Active Vehicles</span>
+                        <span class="stat-value" id="activeVehicles">0</span>
+                        <span class="stat-change neutral">No change</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon customers">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <span class="stat-label">Customers</span>
+                        <span class="stat-value" id="totalCustomers">0</span>
+                        <span class="stat-change positive">+15 this month</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="charts-section">
+                <div class="chart-card">
+                    <h3>Sales Overview</h3>
+                    <div class="chart-placeholder">
+                        <canvas id="salesChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Orders by Status</h3>
+                    <div class="status-stats" id="ordersByStatus">
+                        <!-- Will be loaded via JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="activity-section">
+                <div class="section-header">
+                    <h3>Recent Orders</h3>
+                    <a href="orders.html" class="view-all-link">View All</a>
+                </div>
+                <div class="activity-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Vehicle</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentOrdersTable">
+                            <!-- Will be loaded via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Popular Vehicles -->
+            <div class="activity-section">
+                <div class="section-header">
+                    <h3>Top Selling Vehicles</h3>
+                    <a href="vehicles.html" class="view-all-link">Manage Vehicles</a>
+                </div>
+                <div class="vehicles-grid" id="topVehicles">
+                    <!-- Will be loaded via JS -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../js/data.js"></script>
+    <script src="../../js/admin-dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeloMart - Drive Your Dreams</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/notifications.css">
+    <link rel="stylesheet" href="css/music-player.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <i class="fas fa-car"></i>
+                    <span>VeloMart</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="pages/vehicles.html">Vehicles</a></li>
+                    <li><a href="pages/about.html">About</a></li>
+                    <li><a href="pages/contact.html">Contact</a></li>
+                    <li><a href="pages/faq.html">FAQ</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="icon-btn" id="searchBtn"><i class="fas fa-search"></i></button>
+                    <button class="icon-btn" id="userBtn"><i class="fas fa-user"></i></button>
+                    <button class="icon-btn" id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Drive Your <span class="gradient-text">Dreams</span></h1>
+                <p>Discover the perfect vehicle for your lifestyle—cars, motorcycles, boats, vans, and more. All in one place.</p>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search for cars, motorcycles, boats...">
+                    <button class="btn-primary">Search</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="container">
+            <div class="category-grid">
+                <a href="pages/vehicles.html?category=cars" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <span>Cars</span>
+                </a>
+                <a href="pages/vehicles.html?category=motorcycles" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-motorcycle"></i>
+                    </div>
+                    <span>Motorcycles</span>
+                </a>
+                <a href="pages/vehicles.html?category=trucks" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <span>Trucks</span>
+                </a>
+                <a href="pages/vehicles.html?category=vans" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-shuttle-van"></i>
+                    </div>
+                    <span>Vans</span>
+                </a>
+                <a href="pages/vehicles.html?category=heavy" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-truck-monster"></i>
+                    </div>
+                    <span>Heavy Equipment</span>
+                </a>
+                <a href="pages/vehicles.html?category=electric" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-charging-station"></i>
+                    </div>
+                    <span>Electric Vehicles</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Vehicles -->
+    <section class="featured-vehicles">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Vehicles</h2>
+                <a href="pages/vehicles.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="vehicle-grid" id="featuredVehicles">
+                <!-- Vehicles will be loaded via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-car"></i>
+                        <span>VeloMart</span>
+                    </div>
+                    <p>Drive Your Dreams</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="pages/vehicles.html">Vehicles</a></li>
+                        <li><a href="pages/about.html">About</a></li>
+                        <li><a href="pages/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="pages/faq.html">FAQ</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Admin</h4>
+                    <ul>
+                        <li><a href="pages/admin/dashboard.html">Dashboard</a></li>
+                        <li><a href="pages/admin/vehicles.html">Manage Vehicles</a></li>
+                        <li><a href="pages/admin/orders.html">Manage Orders</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 VeloMart. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/notifications.js"></script>
+    <script src="js/music-player.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

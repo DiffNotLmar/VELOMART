@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Vehicles - VeloMart</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/vehicles.css">
+    <link rel="stylesheet" href="../css/music-player.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <i class="fas fa-car"></i>
+                    <span>VeloMart</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="vehicles.html" class="active">Vehicles</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="icon-btn" id="searchBtn"><i class="fas fa-search"></i></button>
+                    <button class="icon-btn" id="userBtn"><i class="fas fa-user"></i></button>
+                    <button class="icon-btn" id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>All Vehicles</h1>
+            <p>Browse our complete collection of vehicles</p>
+        </div>
+    </section>
+
+    <!-- Vehicles Section -->
+    <section class="vehicles-section">
+        <div class="container">
+            <div class="vehicles-layout">
+                <!-- Sidebar Filters -->
+                <aside class="filters-sidebar">
+                    <div class="filter-section">
+                        <h3>Filters</h3>
+                        <button class="reset-filters" id="resetFilters">Reset Filters</button>
+                    </div>
+
+                    <!-- Vehicle Type Filter -->
+                    <div class="filter-section">
+                        <h4>Vehicle Type</h4>
+                        <div class="filter-options">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="category" value="all" checked>
+                                <span>All Vehicles</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="category" value="cars">
+                                <span>Cars</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="category" value="motorcycles">
+                                <span>Motorcycles</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="category" value="trucks">
+                                <span>Trucks</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="category" value="vans">
+                                <span>Vans</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="category" value="heavy">
+                                <span>Heavy Equipment</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="category" value="electric">
+                                <span>Electric Vehicles</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Make Filter -->
+                    <div class="filter-section">
+                        <h4>Make</h4>
+                        <select class="filter-select" id="makeFilter">
+                            <option value="">All Makes</option>
+                        </select>
+                    </div>
+
+                    <!-- Price Range Filter -->
+                    <div class="filter-section">
+                        <h4>Price Range</h4>
+                        <div class="price-inputs">
+                            <input type="number" placeholder="Min" id="minPrice" class="price-input">
+                            <span>-</span>
+                            <input type="number" placeholder="Max" id="maxPrice" class="price-input">
+                        </div>
+                        <div class="price-range-slider">
+                            <input type="range" min="0" max="2000000" value="0" id="priceRangeMin" class="range-slider">
+                            <input type="range" min="0" max="2000000" value="2000000" id="priceRangeMax" class="range-slider">
+                        </div>
+                        <div class="price-labels">
+                            <span>₱50,000</span>
+                            <span>₱2,000,000+</span>
+                        </div>
+                    </div>
+
+                    <!-- Year Filter -->
+                    <div class="filter-section">
+                        <h4>Year</h4>
+                        <select class="filter-select" id="yearFilter">
+                            <option value="">All Years</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                        </select>
+                    </div>
+
+                    <!-- Transmission Filter -->
+                    <div class="filter-section">
+                        <h4>Transmission</h4>
+                        <div class="filter-options">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="transmission" value="automatic">
+                                <span>Automatic</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="transmission" value="manual">
+                                <span>Manual</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Fuel Type Filter -->
+                    <div class="filter-section">
+                        <h4>Fuel Type</h4>
+                        <div class="filter-options">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="fuel" value="gasoline">
+                                <span>Gasoline</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="fuel" value="diesel">
+                                <span>Diesel</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="fuel" value="electric">
+                                <span>Electric</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="fuel" value="hybrid">
+                                <span>Hybrid</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="btn-primary apply-filters-btn" id="applyFilters">Apply Filters</button>
+                </aside>
+
+                <!-- Main Content -->
+                <div class="vehicles-main">
+                    <!-- Toolbar -->
+                    <div class="vehicles-toolbar">
+                        <div class="results-count" id="resultsCount">
+                            Showing <span id="currentCount">0</span> vehicles
+                        </div>
+                        <div class="sort-controls">
+                            <label>Sort by:</label>
+                            <select class="sort-select" id="sortBy">
+                                <option value="newest">Newest First</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="year-new">Year: Newest</option>
+                                <option value="year-old">Year: Oldest</option>
+                                <option value="mileage">Mileage: Low to High</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Vehicles Grid -->
+                    <div class="vehicle-grid" id="vehiclesGrid">
+                        <!-- Vehicles will be loaded here via JavaScript -->
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination" id="pagination">
+                        <button class="page-btn" id="prevPage"><i class="fas fa-chevron-left"></i></button>
+                        <div class="page-numbers" id="pageNumbers"></div>
+                        <button class="page-btn" id="nextPage"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-car"></i>
+                        <span>VeloMart</span>
+                    </div>
+                    <p>Drive Your Dreams</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="vehicles.html">Vehicles</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Admin</h4>
+                    <ul>
+                        <li><a href="admin/dashboard.html">Dashboard</a></li>
+                        <li><a href="admin/vehicles.html">Manage Vehicles</a></li>
+                        <li><a href="admin/orders.html">Manage Orders</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 VeloMart. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/music-player.js"></script>
+    <script src="../js/vehicles.js"></script>
+</body>
+</html>
