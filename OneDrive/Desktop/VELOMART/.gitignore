@@ -6,9 +6,16 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Node modules (if you add npm later)
+# Dependencies
 node_modules/
+
+# Environment variables
+.env
 
 # Temporary files
 *.tmp
 *.log
+
+# Build files
+dist/
+build/
