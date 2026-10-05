@@ -1,9 +1,0 @@
-node_modules/
-.env
-.git/
-*.mp4
-*.mp3
-test-connection.js
-SETUP.md
-START-HERE.md
-DEPLOYMENT-CHECKLIST.md
